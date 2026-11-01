@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --campus-bg: #F4F1E8;
+    --campus-black: #171717;
+    --campus-blue: #3155E7;
+    --campus-orange: #FF7043;
+    --campus-lime: #D7F36B;
+    --campus-muted: #A6A49C;
+  }
+
+  body {
+    background-color: #F4F1E8;
+    color: #171717;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+}
+
+@layer components {
+  /* Neo-brutalist button base */
+  .btn-brutal-primary {
+    @apply inline-flex items-center justify-center font-heading font-bold text-sm uppercase tracking-wider px-5 py-2.5 bg-campus-blue text-white border-2 border-campus-black shadow-brutal transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-brutal-sm active:translate-x-1 active:translate-y-1 active:shadow-none;
+  }
+
+  .btn-brutal-lime {
+    @apply inline-flex items-center justify-center font-heading font-bold text-sm uppercase tracking-wider px-5 py-2.5 bg-campus-lime text-campus-black border-2 border-campus-black shadow-brutal transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-brutal-sm active:translate-x-1 active:translate-y-1 active:shadow-none;
+  }
+
+  .btn-brutal-orange {
+    @apply inline-flex items-center justify-center font-heading font-bold text-sm uppercase tracking-wider px-5 py-2.5 bg-campus-orange text-white border-2 border-campus-black shadow-brutal transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-brutal-sm active:translate-x-1 active:translate-y-1 active:shadow-none;
+  }
+
+  .btn-brutal-outline {
+    @apply inline-flex items-center justify-center font-heading font-bold text-sm uppercase tracking-wider px-5 py-2.5 bg-white text-campus-black border-2 border-campus-black shadow-brutal transition-all hover:bg-campus-bg hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-brutal-sm active:translate-x-1 active:translate-y-1 active:shadow-none;
+  }
+
+  /* Neo-brutalist cards */
+  .card-brutal {
+    @apply bg-white border-2 border-campus-black shadow-brutal transition-all;
+  }
+
+  .card-brutal-interactive {
+    @apply bg-white border-2 border-campus-black shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg;
+  }
+
+  /* Neo-brutalist badge */
+  .badge-brutal {
+    @apply inline-flex items-center px-2.5 py-1 text-xs font-mono font-bold uppercase tracking-wider border-2 border-campus-black;
+  }
+}
+
+/* Leaflet map enhancements */
+.leaflet-container {
+  font-family: 'Inter', sans-serif !important;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.leaflet-popup-content-wrapper {
+  border: 2px solid #171717 !important;
+  box-shadow: 4px 4px 0px #171717 !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-content {
+  margin: 12px !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.leaflet-popup-tip-container {
+  display: none !important;
+}
+
+/* Custom pulse animation for live GPS marker */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+.gps-pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
